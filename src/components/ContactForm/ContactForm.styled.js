@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 
 export const Title = styled.h2`
-  margin: 0 auto 24px;
+  margin: 0 0 24px;
 
   font-size: 24px;
   font-weight: 700;
   text-align: center;
   text-transform: uppercase;
+
+  color: #19293b;
 `;
 
 export const FormInput = styled.input`
@@ -26,6 +28,7 @@ export const FormInput = styled.input`
 `;
 
 export const AddButton = styled.button`
+  margin-bottom: 24px;
   padding: 10px 16px;
   display: block;
   width: 100%;
@@ -39,6 +42,8 @@ export const AddButton = styled.button`
   border-radius: 4px;
   border: none;
   background-color: #40bfff;
+
+  cursor: pointer;
 
   transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
 

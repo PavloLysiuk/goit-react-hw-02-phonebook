@@ -3,11 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.div`
   margin: 48px auto;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-
   padding: 24px;
   max-width: 360px;
 
