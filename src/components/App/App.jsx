@@ -11,12 +11,23 @@ export class App extends Component {
     contacts: prevContacts,
     name: '',
   };
+
+  handleDelete = id => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
+    }));
+  };
+
   render() {
     return (
       <Container>
         <ContactForm title="Phonebook" />
         {/* <Filter /> */}
-        <ContactList title="Contacts" getContacts={this.state.contacts} />
+        <ContactList
+          title="Contacts"
+          getContacts={this.state.contacts}
+          onDelete={this.handleDelete}
+        />
         <GlobalStyle />
       </Container>
     );

@@ -12,6 +12,7 @@ export const Title = styled.h2`
 `;
 
 export const ListItem = styled.li`
+  margin-top: 12px;
   padding: 0 0 0 16px;
   display: flex;
   align-items: center;
@@ -23,6 +24,10 @@ export const ListItem = styled.li`
 
   transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
 
+  &:first-child {
+    margin-top: 24px;
+  }
+
   &:hover {
     background-color: #40bfff;
   }
@@ -30,16 +35,11 @@ export const ListItem = styled.li`
   &:hover p {
     color: #fff;
   }
-
-  &:not(:last-child) {
-    margin-bottom: 12px;
-  }
 `;
 
 export const Text = styled.p`
   font-size: 16px;
   font-weight: 600;
-
   color: #19293bbe;
 
   transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1);

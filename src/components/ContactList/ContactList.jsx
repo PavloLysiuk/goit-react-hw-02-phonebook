@@ -2,7 +2,7 @@ import { Filter } from 'components/Filter/Filter';
 import { Title, ListItem, Text, DeleteButton } from './ContactList.styled';
 import { PiTrash } from 'react-icons/pi';
 
-export const ContactList = ({ title, getContacts }) => {
+export const ContactList = ({ title, getContacts, onDelete }) => {
   return (
     <div>
       {title && <Title>{title}</Title>}
@@ -13,7 +13,7 @@ export const ContactList = ({ title, getContacts }) => {
             <Text>
               {contact.name}: {contact.number}
             </Text>
-            <DeleteButton type="button">
+            <DeleteButton type="button" onClick={() => onDelete(contact.id)}>
               <PiTrash />
             </DeleteButton>
           </ListItem>
