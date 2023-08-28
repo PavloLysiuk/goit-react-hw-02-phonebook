@@ -1,5 +1,5 @@
 import { GlobalStyle } from 'GlobalStyles';
-import { Container, Title } from './App.styled';
+import { Container } from './App.styled';
 import { Component } from 'react';
 import { ContactForm } from '../ContactForm/ContactForm';
 import { ContactList } from '../ContactList/ContactList';
@@ -14,11 +14,9 @@ export class App extends Component {
   render() {
     return (
       <Container>
-        <Title>Phonebook</Title>
-        <ContactForm />
+        <ContactForm title="Phonebook" />
         <Filter />
-        <Title>Contacts</Title>
-        <ContactList />
+        <ContactList title="Contacts" />
         <GlobalStyle />
       </Container>
     );

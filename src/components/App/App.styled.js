@@ -6,9 +6,10 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 24px;
 
   padding: 24px;
-  max-width: 400px;
+  max-width: 360px;
 
   border-radius: 8px;
   background-color: #fff;
@@ -22,11 +23,4 @@ export const Container = styled.div`
     transform: translateY(-4px);
     box-shadow: 0 5px 12px rgba(50, 100, 150, 0.25);
   }
-`;
-
-export const Title = styled.h2`
-  font-size: 24px;
-  font-weight: 700;
-  text-align: center;
-  text-transform: uppercase;
 `;
