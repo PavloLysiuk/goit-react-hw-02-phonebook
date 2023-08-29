@@ -14,12 +14,12 @@ export const Title = styled.h2`
 export const ListItem = styled.li`
   margin-top: 12px;
   padding: 0 0 0 16px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   border-radius: 4px;
-
   overflow: hidden;
 
   transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -32,7 +32,8 @@ export const ListItem = styled.li`
     background-color: #40bfff;
   }
 
-  &:hover p {
+  &:hover p,
+  &:hover svg {
     color: #fff;
   }
 `;
@@ -46,8 +47,6 @@ export const Text = styled.p`
 `;
 
 export const DeleteButton = styled.button`
-  display: block;
-
   padding: 4px;
   width: 32px;
   height: 32px;
@@ -56,11 +55,11 @@ export const DeleteButton = styled.button`
   font-size: 12px;
   text-transform: uppercase;
 
-  color: white;
+  color: #0099e6;
 
   border-radius: 4px;
   border: none;
-  background-color: #40bfff;
+  background-color: transparent;
 
   cursor: pointer;
   transition: background-color 200ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -68,6 +67,7 @@ export const DeleteButton = styled.button`
   svg {
     width: 20px;
     height: 20px;
+    transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   &:hover {

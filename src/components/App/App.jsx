@@ -12,7 +12,7 @@ export class App extends Component {
     name: '',
   };
 
-  handleDelete = id => {
+  deleteContact = id => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
@@ -26,7 +26,7 @@ export class App extends Component {
         <ContactList
           title="Contacts"
           getContacts={this.state.contacts}
-          onDelete={this.handleDelete}
+          onDelete={this.deleteContact}
         />
         <GlobalStyle />
       </Container>
