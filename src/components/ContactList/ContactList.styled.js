@@ -12,7 +12,6 @@ export const Title = styled.h2`
 `;
 
 export const ListItem = styled.li`
-  margin-top: 12px;
   padding: 0 0 0 8px;
 
   display: flex;
@@ -49,8 +48,8 @@ export const Text = styled.p`
 
 export const DeleteButton = styled.button`
   padding: 4px;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
 
   text-align: center;
   font-size: 12px;
