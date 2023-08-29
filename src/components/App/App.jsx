@@ -3,13 +3,30 @@ import { Container } from './App.styled';
 import { Component } from 'react';
 import { ContactForm } from '../ContactForm/ContactForm';
 import { ContactList } from '../ContactList/ContactList';
-// import { Filter } from '../Filter/Filter';
 import prevContacts from '../../data/prevContacts';
 
 export class App extends Component {
   state = {
     contacts: prevContacts,
-    name: '',
+    filter: '',
+  };
+
+  addContact = contact => {
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, contact],
+    }));
+  };
+
+  filterContact = () => {
+    const { filter, contacts } = this.state;
+    const filteredContacts = contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
+    return filteredContacts;
+  };
+
+  handleFilterChange = filter => {
+    this.setState({ filter });
   };
 
   deleteContact = id => {
@@ -21,13 +38,14 @@ export class App extends Component {
   render() {
     return (
       <Container>
-        <ContactForm title="Phonebook" />
-        {/* <Filter /> */}
+        <ContactForm title="Phonebook" onSubmit={this.addContact} />
         <ContactList
           title="Contacts"
-          getContacts={this.state.contacts}
+          getContacts={this.filterContact()}
+          onFilter={this.handleFilterChange}
           onDelete={this.deleteContact}
         />
+
         <GlobalStyle />
       </Container>
     );

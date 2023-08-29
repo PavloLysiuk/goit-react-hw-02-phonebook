@@ -2,11 +2,12 @@ import { Filter } from 'components/Filter/Filter';
 import { Title, ListItem, Text, DeleteButton } from './ContactList.styled';
 import { PiTrash } from 'react-icons/pi';
 
-export const ContactList = ({ title, getContacts, onDelete }) => {
+export const ContactList = ({ title, getContacts, onFilter, onDelete }) => {
   return (
     <div>
       {title && <Title>{title}</Title>}
-      <Filter />
+      <Filter onFilter={onFilter} />
+
       <ul>
         {getContacts.map(contact => (
           <ListItem key={contact.id}>

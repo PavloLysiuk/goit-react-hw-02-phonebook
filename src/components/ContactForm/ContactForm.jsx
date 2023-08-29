@@ -1,6 +1,6 @@
 import { Title, FormInput, AddButton } from './ContactForm.styled';
 
-export const ContactForm = ({ title }) => {
+export const ContactForm = ({ title, onSubmit }) => {
   return (
     <div>
       {title && <Title>{title}</Title>}
