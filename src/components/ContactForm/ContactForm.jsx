@@ -1,28 +1,47 @@
-import { Title, FormInput, AddButton } from './ContactForm.styled';
+import { Title, FormInput, ErrorMsg, AddButton } from './ContactForm.styled';
+import { Formik, Form } from 'formik';
+import * as Yup from 'yup';
 
-export const ContactForm = ({ title, onSubmit }) => {
+const SubmitSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(3, 'Name Is Too Short!')
+    .max(30, 'Name Is Too Long!')
+    .required('Required'),
+  number: Yup.number()
+    .min(3, 'Number Is Too Short!')
+    .max(9999999, 'Number Is Too Long!')
+    .positive('Must be positive')
+    .required('Required'),
+});
+
+export const ContactForm = ({ title }) => {
   return (
     <div>
       {title && <Title>{title}</Title>}
 
-      <FormInput
-        type="text"
-        name="name"
-        placeholder="Full Name (Example: Pavlo Lysiuk)"
-        pattern="^[a-zA-Zа-яА-Я]+(([' \-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-        required
-      />
-
-      <FormInput
-        type="tel"
-        name="number"
-        placeholder="Phone number (Example: XXX-XX-XX)"
-        pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
-        title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-        required
-      />
-      <AddButton type="submit">Add contact</AddButton>
+      <Formik
+        initialValues={{ name: '', number: '' }}
+        validationSchema={SubmitSchema}
+        onSubmit={values => {
+          console.log(values);
+        }}
+      >
+        <Form>
+          <FormInput
+            type="text"
+            name="name"
+            placeholder="Full Name (Example: Pavlo Lysiuk)"
+          />
+          <ErrorMsg name="name" component="p" />
+          <FormInput
+            type="tel"
+            name="number"
+            placeholder="Phone number (Example: XXXXXXX)"
+          />
+          <ErrorMsg name="number" component="p" />
+          <AddButton type="submit">Add contact</AddButton>
+        </Form>
+      </Formik>
     </div>
   );
 };
