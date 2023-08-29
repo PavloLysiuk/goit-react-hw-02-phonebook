@@ -13,7 +13,7 @@ export const Title = styled.h2`
 
 export const ListItem = styled.li`
   margin-top: 12px;
-  padding: 0 0 0 16px;
+  padding: 0 0 0 8px;
 
   display: flex;
   align-items: center;
