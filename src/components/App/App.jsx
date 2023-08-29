@@ -19,10 +19,11 @@ export class App extends Component {
     );
 
     if (isAlreadyExist) {
-      Notify.failure(`${newContact.name} is already in contacts`, {
+      Notify.warning(`${newContact.name} is already in contacts`, {
         width: '360px',
         position: 'center-top',
-        distance: '100px',
+        distance: '110px',
+        borderRadius: '0px',
         fontSize: '16px',
       });
       return;
