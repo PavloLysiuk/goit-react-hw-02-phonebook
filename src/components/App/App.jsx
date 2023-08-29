@@ -1,5 +1,5 @@
 import { GlobalStyle } from 'GlobalStyles';
-import { Container } from './App.styled';
+import { Container, NoContacts } from './App.styled';
 import { Component } from 'react';
 import { ContactForm } from '../ContactForm/ContactForm';
 import { ContactList } from '../ContactList/ContactList';
@@ -19,17 +19,16 @@ export class App extends Component {
 
   filterContact = () => {
     const { filter, contacts } = this.state;
-    const filteredContacts = contacts.filter(contact =>
+    return contacts.filter(contact =>
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
-    return filteredContacts;
   };
 
   handleFilterChange = filter => {
     this.setState({ filter });
   };
 
-  deleteContact = id => {
+  handleDeleteContact = id => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
@@ -39,13 +38,16 @@ export class App extends Component {
     return (
       <Container>
         <ContactForm title="Phonebook" onSubmit={this.addContact} />
-        <ContactList
-          title="Contacts"
-          getContacts={this.filterContact()}
-          onFilter={this.handleFilterChange}
-          onDelete={this.deleteContact}
-        />
-
+        {this.state.contacts.length > 0 ? (
+          <ContactList
+            title="Contacts"
+            getContacts={this.filterContact()}
+            onFilter={this.handleFilterChange}
+            onDelete={this.handleDeleteContact}
+          />
+        ) : (
+          <NoContacts>No contacts in phone book</NoContacts>
+        )}
         <GlobalStyle />
       </Container>
     );

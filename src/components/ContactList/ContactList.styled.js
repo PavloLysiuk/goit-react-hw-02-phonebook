@@ -35,15 +35,16 @@ export const ListItem = styled.li`
   &:hover p,
   &:hover svg {
     color: #fff;
+    font-weight: 800;
   }
 `;
 
 export const Text = styled.p`
   font-size: 16px;
-  font-weight: 600;
   color: #19293bbe;
 
-  transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    font-weight 200ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
 export const DeleteButton = styled.button`
